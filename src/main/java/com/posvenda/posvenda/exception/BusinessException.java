@@ -10,17 +10,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class BusinessException extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(PagamentoException.class)
-    public ResponseEntity<PagamentoException> pagamentoException(PagamentoException pagamentoException){
-       return ResponseEntity.
-                status(HttpStatus.INTERNAL_SERVER_ERROR).
-                body(new PagamentoException(pagamentoException.getMessage()));
+    public ResponseEntity<?> pagamentoException(PagamentoException pagamentoException){
+        var details = new ExceptionDetails();
+        details.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
+        details.setMessage(pagamentoException.getMessage());
+        return new ResponseEntity<>(details, HttpStatus.UNPROCESSABLE_ENTITY);
+
     }
 
-    @ExceptionHandler(ParcelaException.class)
-    public ResponseEntity<PagamentoException> pagamentoException(ParcelaException parcelaException){
-        return ResponseEntity.
-                status(HttpStatus.INTERNAL_SERVER_ERROR).
-                body(new PagamentoException(parcelaException.getMessage()));
-    }
+
 
 }
