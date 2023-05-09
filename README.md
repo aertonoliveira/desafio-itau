@@ -100,7 +100,8 @@ request:
 
 response:
 ```http
-    "contrato": {
+  {
+  "contrato": {
         "id_contrato": "37959",
         "ultimo_digito_contrato": "9",
         "numero_cpf_cnpj_cliente": "66273815089",
