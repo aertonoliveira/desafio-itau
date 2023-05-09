@@ -4,6 +4,7 @@ import com.posvenda.posvenda.exception.PagamentoException;
 import com.posvenda.posvenda.models.AdiantamentoQuantidadeParcela;
 import com.posvenda.posvenda.models.Parcelas;
 import com.posvenda.posvenda.models.RetornoApiJuros;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -48,9 +49,11 @@ public class RegrasService {
     }
 
     public static Parcelas atualizarDiaPagamento(Parcelas parcelas, int diaPagamento) {
-        parcelas.setTipoCalculo(MOCK_ADITAMENTO);
-        parcelas.setDiaPagamento(diaPagamento);
-        return parcelas;
+        Parcelas parcela = new Parcelas();
+        BeanUtils.copyProperties(parcelas,parcela);
+        parcela.setTipoCalculo(MOCK_ADITAMENTO);
+        parcela.setDiaPagamento(diaPagamento);
+        return parcela;
     }
 
     public static Parcelas novaParcela(double valorAtualizado, RetornoApiJuros retornoApiJuros, int adiantamento){

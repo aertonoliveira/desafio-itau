@@ -14,6 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Parcelas {
 
+
     @JsonProperty("data_calculo")
     private Date dataCalculo;
 

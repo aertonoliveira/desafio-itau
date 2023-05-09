@@ -17,5 +17,4 @@ public class QuantidadeParcelasResponseDTO implements Serializable {
 
     private Contrato contrato;
     private List<Parcelas> financeiro;
-    private AdiantamentoQuantidadeParcela adiantamento;
 }

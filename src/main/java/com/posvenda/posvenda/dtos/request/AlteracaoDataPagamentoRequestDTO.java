@@ -14,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AlteracaoDataPagamentoRequestDTO implements Serializable {
-
     private Contrato contrato;
     private List<Parcelas> financeiro;
     private AdiantamentoAlteracaoData adiantamento;
